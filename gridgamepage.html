@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Game</title>
+  <link rel="stylesheet" href="gridgamestyle.css">
+</head>
+
+<body>
+    <div id="timer">00:00</div>
+    <div id="moves">00</div>
+    <main>
+        <img id="main-image" src="image1.jpg" alt="Selected Image">     
+        <div id="overlay">
+            <header>
+            <h1>Image Puzzle</h1>
+            <p>Choose one of the images & grid size:</p>
+            </header>
+    
+            <section id="options">
+            <button onclick="selectGrid(4,2)">4 x 2</button>
+            <button class="selected" onclick="selectGrid(6,3)">6 x 3</button>
+            <button onclick="selectGrid(8,4)">8 x 4</button>
+            <button onclick="selectGrid(12,6)">12 x 6</button>
+            </section>
+    
+            <footer>
+            <button onclick="startGame()">Start Game!</button>
+            </footer>
+        </div>
+        <div id="canvas-container">
+            <canvas id ="puzzleCanvas"></canvas>
+        </div> 
+        <section id="images">
+            <img class="thumb selected" src="image1.jpg" alt="Image 1" onclick="selectImage('image1.jpg')">
+            <img class="thumb" src="image2.jpg" alt="Image 2" onclick="selectImage('image2.jpg')">
+            <img class="thumb" src="image3.jpg" alt="Image 3" onclick="selectImage('image3.jpg')">
+            <img class="thumb" src="image4.jpg" alt="Image 4" onclick="selectImage('image4.jpg')">
+            <img class="thumb" src="image5.jpg" alt="Image 5" onclick="selectImage('image5.jpg')">
+            <label for="fileInput" id="uploadButton" class="upload-button">
+                Upload<br>
+                an<br>
+                Image
+            </label>
+            <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)" style="display:none;">
+        </section>
+        <div id="victoryMessage" class="hidden">
+            You Won!
+        </div>
+        <div id="timetaken" class="hidden">Time Taken: </div>
+        <div id="totalmoves" class="hidden">Total Moves: </div>
+        <button id="playAgainButton" class="hidden" onclick="restartGame()">
+            Play Again
+        </button>
+    </main>
+    <script src="gridgamecode.js"></script>
+</body>
+</html>
